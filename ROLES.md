@@ -22,15 +22,17 @@ first** — everyone else's branch assumes these shapes:
 `hooks/useGeolocation.ts` → `lib/presets.ts` → `components/LocationPicker.tsx` (plus its
 slice of `globals.css`). Fully independent — no dependency on the other roles.
 
-**2. `feature/routing-api`** — Role: Transit Routing & ETA API. 4 commits building
-`lib/geo.ts` → `lib/odsay.ts` → `lib/transit.ts` → `app/api/route/route.ts`. Backend only,
-fully independent. Test with `curl` against `http://localhost:4000/api/route` — no frontend
-needed.
+**2. `feature/routing-api`** — Role: Transit Routing & ETA API. 5 commits building
+`lib/geo.ts` → `lib/odsay.ts` → `lib/transit.ts` → `backend/lib/time.ts`
+(`computeDepartureDeadline` — the deadline math the endpoint needs, so it lives here rather
+than on the countdown branch) → `app/api/route/route.ts`. Backend only, fully independent.
+Test with `curl` against `http://localhost:4000/api/route` — no frontend needed.
 
 **3. `feature/departure-countdown`** — Role: Departure Countdown & Alerts. 4 commits
-building `hooks/useCountdown.ts` → `hooks/useNotification.ts` → `lib/time.ts` (both
-projects) → `components/DepartureBanner.tsx` (plus its slice of `globals.css`).
-Independent of Location/Routing.
+building `hooks/useCountdown.ts` → `hooks/useNotification.ts` → `frontend/lib/time.ts`
+(display-only: formatting + urgency buckets, a separate small file from the backend's
+deadline math) → `components/DepartureBanner.tsx` (plus its slice of `globals.css`).
+Frontend only, independent of Location/Routing.
 
 **4. `feature/app-shell`** — Role: Trip Form, Theme & Integration. This branch already has
 1–3 merged into it (so it builds and runs standalone right now), plus its own commits on
