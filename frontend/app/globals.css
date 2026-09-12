@@ -309,3 +309,15 @@ h2 {
   margin: 0 0 20px;
   font-size: 0.95rem;
 }
+
+/* --- Trip breakdown (feature/app-shell) --- */
+
+.trip-breakdown ul {
+  margin: 0 0 10px;
+  padding-left: 20px;
+  font-size: 0.9rem;
+}
+
+.trip-breakdown li {
+  margin-bottom: 4px;
+}
