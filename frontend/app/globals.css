@@ -191,3 +191,57 @@ select {
 .urgency-late .departure-banner-headline {
   color: var(--danger);
 }
+
+/* --- EventForm (feature/app-shell) --- */
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.picker-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .picker-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.mode-btn-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+}
